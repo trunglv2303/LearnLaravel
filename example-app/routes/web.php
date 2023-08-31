@@ -13,14 +13,27 @@ use  App\Models\User;
 |
 */
 
-Route::get('/', function () {
-   return view('welcome');
+// Route::get('/', function () {
+//    return view('welcome');
    
-});
-Route::get('/unicode',function(){
-   $user = new User();
-$alluser=$user::all();
-   dd($alluser);
-   return view('product');
+// });
+// Route::get('/unicode',function(){
+//    $user = new User();
+// $alluser=$user::all();
+//    dd($alluser);
+//    return view('product');
 
+// });
+// Route::get('/',function(){
+//    return view('welcome') ;
+// });
+Route::get ('unicode',function(){
+   return view('form');
+
+});
+Route::post('unicode',function(){
+   return 'Phương thức post của path';
+});
+Route::put('unicode',function(){
+   return 'Phương thức post của path';
 });
