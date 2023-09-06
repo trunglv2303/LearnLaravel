@@ -75,12 +75,14 @@ Route::prefix('/product')-> group(function (){
 
 
 Route::prefix('/')->group(function() {
-   Route::get('/', [HomeController::class, 'index'])->name('homeindex');
-   Route::get('/trung', [HomeController::class, 'trung']);
-   Route::get('/hai', [HomeController::class, 'trung']);
-   Route::post('/trung-post', [HomeController::class, 'solveForm'])->name('index.trung');
-   Route::prefix('/product')->group(function() {
-      Route::get('/', [HomeController::class, 'indexProduct'])->name('product');
-      Route::get('/add', [HomeController::class, 'indexProduct'])->name('product.add');
-   });
+   // Route::get('/', [HomeController::class, 'viewlogin'])->name('homeindex');
+   Route::get('/form-login', [HomeController::class, 'viewlogin'])->name('viewform');
+   Route::post('/submit-loginform', [HomeController::class, 'submitlogin'])->name('submitlogin');
+   Route::get('/trung', [HomeController::class, 'user.index'])->name("viewhome");
+   // Route::get('/hai', [HomeController::class, 'trung']);
+   // Route::post('/trung-post', [HomeController::class, 'solveForm'])->name('index.trung');
+   // Route::prefix('/product')->group(function() {
+   //    Route::get('/', [HomeController::class, 'indexProduct'])->name('product');
+   //    Route::get('/add', [HomeController::class, 'indexProduct'])->name('product.add');
+   // });
 });
