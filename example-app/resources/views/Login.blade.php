@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
       </div>
       @endif
 </div>
-    <form action="{{Route('getlogin')}}" method="POST">
+    <form action="{{Route('login')}}" method="POST">
             @csrf
         <h1><b>Login Accout</b></h1>
         USERNAME:
@@ -28,4 +28,4 @@
 
 
 </body>
-</html>
+</html> --}}

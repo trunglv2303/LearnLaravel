@@ -10,6 +10,7 @@
 
 <body>
 
+    
     <H1>ĐĂNG KÍ TÀI KHOẢNG</H1>
     <form action="{{ Route('getinfodk') }}" method="POST">
         @csrf
@@ -18,6 +19,7 @@
         Password : <input type="password"style="width:50% ;font-family:arial" name="pass"> <br>
         <input type="submit" value=" Đăng Kí" style="color: rgb(215, 3, 3) ">
     </form>
+    {{$test}}
 </body>
 
 </html>

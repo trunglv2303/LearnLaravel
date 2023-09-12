@@ -75,23 +75,32 @@ use  App\Models\User;
 // // });
 
 
-// Route::prefix('/')->group(function() {
-//    // Route::get('/', [HomeController::class, 'viewlogin'])->name('homeindex');
-//    Route::get('/form-login', [HomeController::class, 'viewlogin'])->name('viewform');
-//    Route::post('/submit-loginform', [HomeController::class, 'submitlogin'])->name('submitlogin');
-//    // Route::get('/trung', [HomeController::class, 'user.index'])->name("viewhome");
-//    // Route::get('/hai', [HomeController::class, 'trung']);
-//    // Route::post('/trung-post', [HomeController::class, 'solveForm'])->name('index.trung');
-//    // Route::prefix('/product')->group(function() {
-//    //    Route::get('/', [HomeController::class, 'indexProduct'])->name('product');
-//    //    Route::get('/add', [HomeController::class, 'indexProduct'])->name('product.add');
-//    // });
-// });Route::get('cc',function(){   return 'cc';});
+Route::prefix('/')->group(function() {
+   Route::get('/', [HomeController::class, 'index'])->name('homeindex');
+   Route::get('/login',[UserController::class,'login'] )->name('login');
+   Route::post('/login',[UserController::class,'getlogin'])->name('getlogin');
+   Route::post('/submit-loginform', [HomeController::class, 'submitlogin'])->name('submitlogin');
+   Route::get('/trung', [HomeController::class, 'user.index'])->name("viewhome");
+   Route::get('/hai', [HomeController::class, 'trung']);
+   Route::post('/trung-post', [HomeController::class, 'solveForm'])->name('index.trung');
+   Route::prefix('/product')->group(function() {
+      Route::get('/', [HomeController::class, 'indexProduct'])->name('product');
+      Route::get('/add', [HomeController::class, 'indexProduct'])->name('product.add');
+   });
+   Route::prefix('/profile')->group(function() {
+    Route::get('/', [UserController::class, 'checkfrofile'])->name('profile');
+    Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
-Route::get('/ ',[UserController::class,'dangki'] )->name('dangkitk');
-Route::post('/getinfo',[UserController::class,'getinfo'])->name('getinfodk');
-Route::get('/login ',[UserController::class,'login'] )->name('login');
-Route::post('/getlogin',[UserController::class,'getlogin'])->name('getlogin');
-Route::get('/getlogin',[UserController::class,'logout'])->name('logout');
+   });
+});
+
+// Route::get('/',[UserController::class,'dangki'] )->name('dangkitk');
+// Route::post('/getinfo',[UserController::class,'getinfo'])->name('getinfodk');
+// Route::get('/login',[UserController::class,'login'] )->name('login');
+// Route::post('/getlogin',[UserController::class,'getlogin'])->name('getlogin');
+// Route::get('/username',[UserController::class,'logout'])->name('logout');
+// Route::get('/profile',[UserController::class,'getusername'])->name('getusername');
 
 // Route::get('cc',function(){   return 'cc';});
+// Laravel - Xây dựng chức năng thêm danh mục với Query Builder
+// Route::get('/viewcatefgory',[UserController::class,'viewcategory'])->name('viewcategory');

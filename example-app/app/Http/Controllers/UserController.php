@@ -7,9 +7,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Whoops\Handler\JsonResponseHandler;
 
 class UserController extends Controller
 {
+    public $data = [];
     public function show($id)
     {
         return User::findOrFail($id);
@@ -29,7 +31,8 @@ class UserController extends Controller
 
     public function dangki()
     {
-        return view('DangKiThanhVien');
+        $data['test'] = 123;
+        return view('DangKiThanhVien', $data);
     }
     public function getinfo(Request $request)
     {
@@ -46,8 +49,10 @@ class UserController extends Controller
     }
     public function login()
     {
-
-        return view('Login');
+        if (auth()->user() == null)
+            return view('user.login');
+        else
+            return redirect(route("homeindex"));
     }
     public function getlogin(Request $request)
     {
@@ -69,7 +74,7 @@ class UserController extends Controller
         //Sử dụng laravel để đăng nhập Auth
         if(Auth::attempt(['username'=>$username,'password'=>$pass])){
             echo 'Đăng nhập thành công';
-            return view('Xinchao',$username);
+            return redirect(route("homeindex"));
         }
         else{
             echo 'Đăng nhập không thành công';
@@ -77,7 +82,25 @@ class UserController extends Controller
     }
     public function logout(){
         Auth::logout();
-        return view ('Login');
+        return  redirect(route('login'));
+
+    }
+    public function viewcategory(){
+        return view('category.category');
+
+    }
+    public function getusername(){
+        return view('profile');
+
+    }
+    public function checkfrofile(){
+       if ( auth()->check()==null){
+        return view('login');
+       }
+       else {
+        return View('user.profile');
+
+       }
 
     }
 }

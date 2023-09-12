@@ -21,6 +21,10 @@ class HomeController extends BaseController
         return view('user.index');
     }
 
+    function profile() {
+        return View('user.profile');
+    }
+
     function trung()
     {
         return view('trung.form');
