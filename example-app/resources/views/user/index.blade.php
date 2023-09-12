@@ -20,7 +20,7 @@
 <body>
     <div class="thanhtren">
         <div class="bentrai">
-             <a href="{{route('homeindex')}}" class="icon">
+             <a href="" class="icon">
                 <div class="fa fa-home"></div> Hệ Thống Cửa Hàng
             </a>
         </div>     
@@ -145,7 +145,7 @@
             <ul>
                 <li>
                     <div class="item">
-                        <a href="{{route('product')}}" class="ten"><b>SẢN PHẨM</b>
+                        <a href="" class="ten"><b>SẢN PHẨM</b>
                             <div class="fa fa-chevron-down"></div>
                         </a>
                         <div class="layer1">

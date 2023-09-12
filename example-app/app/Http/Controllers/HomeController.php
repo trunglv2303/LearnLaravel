@@ -45,12 +45,14 @@ class HomeController extends BaseController
         return view('Login');
     }
     function   submitlogin(Request $request)
+
     {
+   
         //Validation
-        if (Auth::attempt(['email' => $request->username, 'password' => $request->pass])) {
-            return redirect()->route(route: 'viewhome');
-        }
-       return back()->with('message', 'Thông tin đăng nhập không chính xác');
+    //     if (Auth::attempt(['email' => $request->username, 'password' => $request->pass])) {
+    //         return redirect()->route(route: 'viewhome');
+    //     }
+    //    return back()->with('message', 'Thông tin đăng nhập không chính xác');
     }
 } 
 

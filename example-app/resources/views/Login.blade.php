@@ -16,11 +16,11 @@
       </div>
       @endif
 </div>
-    <form action="{{Route('submitlogin')}}" method="POST">
+    <form action="{{Route('getlogin')}}" method="POST">
             @csrf
         <h1><b>Login Accout</b></h1>
         USERNAME:
-        <input type="email" name="username" id=""> <br>
+        <input type="text" name="username" id=""> <br>
         PASSWORD:
         <input type="password" name="pass" id=""><br>
         <input type="submit" value="Đăng Nhập">
